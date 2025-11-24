@@ -37,15 +37,7 @@ export default function BrandStoryPage() {
             description="풍미 깊고 부드러운 육질로 전 세계가 인정하는 프리미엄 품종"
           />
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative h-[300px] md:h-[400px] rounded-2xl overflow-hidden shadow-xl">
-              <Image
-                src={getBrandImage('스페인 듀록')}
-                alt="스페인 듀록 돼지"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-500"
-              />
-            </div>
+          <div className="flex flex-col gap-12">
             <div className="space-y-6">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">왜 스페인 듀록인가요?</h3>
               <ul className="space-y-6">
