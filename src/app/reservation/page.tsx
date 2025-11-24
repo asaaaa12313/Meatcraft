@@ -1,7 +1,7 @@
 'use client';
 
-import SectionTitle from '@/components/common/SectionTitle';
-import Button from '@/components/common/Button';
+import { SectionTitle } from '@/components/common/SectionTitle';
+import { Button } from '@/components/common/Button';
 import { STORE_INFO } from '@/lib/constants';
 import { formatPhoneNumber, handlePhoneCall, handleExternalLink } from '@/lib/utils';
 import { PhoneIcon, CalendarIcon, ClockIcon, UserGroupIcon, InformationCircleIcon } from '@heroicons/react/24/outline';

@@ -1,59 +1,49 @@
-import { ReactNode } from 'react';
+import React from 'react';
 import { cn } from '@/lib/utils';
 
-interface SectionTitleProps {
+interface SectionTitleProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
   subtitle?: string;
-  description?: ReactNode;
-  align?: 'left' | 'center' | 'right';
-  variant?: 'light' | 'dark';
-  className?: string;
+  description?: string;
+  align?: 'left' | 'center';
 }
 
-export default function SectionTitle({
+export function SectionTitle({
   title,
   subtitle,
   description,
   align = 'center',
-  variant = 'light',
   className,
+  ...props
 }: SectionTitleProps) {
-  const alignmentClasses = {
-    left: 'text-left',
-    center: 'text-center',
-    right: 'text-right',
-  };
-
-  const textColors = {
-    light: {
-      subtitle: 'text-secondary-500',
-      title: 'text-gray-900',
-      description: 'text-gray-600',
-    },
-    dark: {
-      subtitle: 'text-secondary-300',
-      title: 'text-white',
-      description: 'text-gray-200',
-    },
-  };
-
-  const colors = textColors[variant];
-
   return (
-    <div className={cn('mb-12', alignmentClasses[align], className)}>
-      {subtitle && (
-        <div className={cn('font-semibold text-sm md:text-base mb-2 tracking-wide uppercase', colors.subtitle)}>
-          {subtitle}
-        </div>
+    <div
+      className={cn(
+        'mb-12',
+        align === 'center' ? 'text-center' : 'text-left',
+        className
       )}
-      <h2 className={cn('text-3xl md:text-4xl lg:text-5xl font-bold mb-4', colors.title)}>
+      {...props}
+    >
+      <h2 className="text-3xl font-bold tracking-tight text-[#8B4513] sm:text-4xl">
         {title}
       </h2>
+      {subtitle && (
+        <p className="mt-2 text-lg font-semibold text-[#D4AF37]">
+          {subtitle}
+        </p>
+      )}
       {description && (
-        <p className={cn('text-base md:text-lg max-w-2xl mx-auto', colors.description)}>
+        <p className="mt-4 text-lg text-gray-600">
           {description}
         </p>
       )}
+      <div
+        className={cn(
+          "mt-4 h-1 w-20 bg-[#D4AF37]",
+          align === 'center' ? 'mx-auto' : ''
+        )}
+      />
     </div>
   );
 }

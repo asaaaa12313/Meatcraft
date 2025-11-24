@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import MenuCard from '@/components/common/MenuCard';
-import SectionTitle from '@/components/common/SectionTitle';
-import Button from '@/components/common/Button';
+import { SectionTitle } from '@/components/common/SectionTitle';
+import { Button } from '@/components/common/Button';
 import { getRecommendedMenus } from '@/data/menu';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 
@@ -77,11 +77,10 @@ export default function FeaturedMenuSection() {
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`w-2 h-2 rounded-full transition-all ${
-                  index === currentIndex
+                className={`w-2 h-2 rounded-full transition-all ${index === currentIndex
                     ? 'bg-primary-600 w-8'
                     : 'bg-gray-300'
-                }`}
+                  }`}
                 aria-label={`${index + 1}번째 메뉴로 이동`}
               />
             ))}

@@ -1,6 +1,6 @@
 'use client';
 
-import Button from '@/components/common/Button';
+import { Button } from '@/components/common/Button';
 import { handlePhoneCall, handleExternalLink } from '@/lib/utils';
 import { STORE_INFO } from '@/lib/constants';
 import { getHeroImage } from '@/lib/image';
@@ -28,14 +28,14 @@ export default function HeroSection() {
         </div>
 
         {/* 메인 카피 */}
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in-up animation-delay-200">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in-up animation-delay-200 text-white">
           숙성의 차이가
           <br />
           <span className="text-secondary-400">맛의 차이</span>
         </h1>
 
         {/* 설명 */}
-        <p className="text-lg md:text-xl lg:text-2xl mb-8 text-gray-200 animate-fade-in-up animation-delay-400 max-w-3xl mx-auto">
+        <p className="text-lg md:text-xl lg:text-2xl mb-8 text-white animate-fade-in-up animation-delay-400 max-w-3xl mx-auto drop-shadow-md">
           세계 3대 명품 돼지고기 스페인 듀록을<br className="md:hidden" />
           20일간 침지·건식 듀얼 숙성으로 완성한<br className="md:hidden" />
           창원 소답중동점 프리미엄 고기집

@@ -1,5 +1,5 @@
-import SectionTitle from '@/components/common/SectionTitle';
-import ReviewCard from '@/components/common/ReviewCard';
+import { SectionTitle } from '@/components/common/SectionTitle';
+import { ReviewCard } from '@/components/sections/ReviewCard';
 import { reviewData, getAverageRating, getTotalReviewCount, getPhotoReviews } from '@/data/review';
 import { Metadata } from 'next';
 import { StarIcon } from '@heroicons/react/24/solid';

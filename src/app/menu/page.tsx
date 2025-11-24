@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import { Metadata } from 'next';
-import SectionTitle from '@/components/common/SectionTitle';
-import MenuCard from '@/components/common/MenuCard';
+import { SectionTitle } from '@/components/common/SectionTitle';
+import { MenuCard } from '@/components/sections/MenuCard';
 import { menuData } from '@/data/menu';
 
 export default function MenuPage() {
@@ -33,11 +33,10 @@ export default function MenuPage() {
         <div className="flex flex-wrap gap-3 justify-center mb-12">
           <button
             onClick={() => setSelectedCategory('all')}
-            className={`px-6 py-3 rounded-full font-semibold transition-all ${
-              selectedCategory === 'all'
-                ? 'bg-primary-600 text-white shadow-lg'
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-            }`}
+            className={`px-6 py-3 rounded-full font-semibold transition-all ${selectedCategory === 'all'
+              ? 'bg-primary-600 text-white shadow-lg'
+              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              }`}
           >
             전체
           </button>
@@ -45,11 +44,10 @@ export default function MenuPage() {
             <button
               key={category.id}
               onClick={() => setSelectedCategory(category.id)}
-              className={`px-6 py-3 rounded-full font-semibold transition-all ${
-                selectedCategory === category.id
-                  ? 'bg-primary-600 text-white shadow-lg'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
+              className={`px-6 py-3 rounded-full font-semibold transition-all ${selectedCategory === category.id
+                ? 'bg-primary-600 text-white shadow-lg'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
             >
               {category.name}
             </button>

@@ -1,101 +1,67 @@
+import React from 'react';
 import Link from 'next/link';
-import { STORE_INFO } from '@/lib/constants';
-import { formatPhoneNumber } from '@/lib/utils';
+import { STORE_INFO, NAV_ITEMS } from '@/lib/constants';
 
-export default function Footer() {
-  const currentYear = new Date().getFullYear();
-
+export function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* 매장 정보 */}
-          <div>
-            <h3 className="text-white font-bold text-lg mb-4">
-              맛있는고기에솜씨를더하다
-            </h3>
-            <p className="text-sm mb-2">소답중동점</p>
-            <p className="text-sm text-gray-400">
-              스페인 듀록 + 침지숙성 + 건식숙성
+    <footer className="bg-gray-900 text-white" aria-labelledby="footer-heading">
+      <h2 id="footer-heading" className="sr-only">Footer</h2>
+      <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
+        <div className="xl:grid xl:grid-cols-3 xl:gap-8">
+          <div className="space-y-8">
+            <span className="text-2xl font-bold text-white">
+              {STORE_INFO.name}
+            </span>
+            <p className="text-sm leading-6 text-gray-300">
+              스페인 듀록과 듀얼 숙성 시스템으로<br />
+              완성된 프리미엄 고기의 참맛을 느껴보세요.
             </p>
           </div>
-
-          {/* 연락처 */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">연락처</h4>
-            <div className="space-y-2 text-sm">
+          <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+            <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <span className="text-gray-400">전화:</span>{' '}
-                <a
-                  href={`tel:${STORE_INFO.phone}`}
-                  className="hover:text-secondary-400 transition-colors"
-                >
-                  {formatPhoneNumber(STORE_INFO.phone)}
-                </a>
+                <h3 className="text-sm font-semibold leading-6 text-white">메뉴</h3>
+                <ul role="list" className="mt-6 space-y-4">
+                  {NAV_ITEMS.slice(0, 4).map((item) => (
+                    <li key={item.label}>
+                      <Link href={item.href} className="text-sm leading-6 text-gray-300 hover:text-white">
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <div>
-                <span className="text-gray-400">주소:</span>
-                <p className="mt-1">{STORE_INFO.address}</p>
+              <div className="mt-10 md:mt-0">
+                <h3 className="text-sm font-semibold leading-6 text-white">고객지원</h3>
+                <ul role="list" className="mt-6 space-y-4">
+                  {NAV_ITEMS.slice(4).map((item) => (
+                    <li key={item.label}>
+                      <Link href={item.href} className="text-sm leading-6 text-gray-300 hover:text-white">
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
-          </div>
-
-          {/* 영업 정보 */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">영업시간</h4>
-            <div className="space-y-2 text-sm">
-              {STORE_INFO.businessHours.map((hour, index) => (
-                <div key={index}>
-                  <span className="text-gray-400">{hour.day}:</span>{' '}
-                  {hour.hours}
-                </div>
-              ))}
-              {STORE_INFO.lastOrder && (
-                <div className="mt-2">
-                  <span className="text-gray-400">라스트오더:</span>{' '}
-                  {STORE_INFO.lastOrder}
-                </div>
-              )}
-              <div className="mt-4 pt-4 border-t border-gray-700">
-                <span className="text-gray-400">주차:</span>
-                <p className="mt-1">{STORE_INFO.parking}</p>
+            <div className="md:grid md:grid-cols-1 md:gap-8">
+              <div>
+                <h3 className="text-sm font-semibold leading-6 text-white">매장 정보</h3>
+                <ul role="list" className="mt-6 space-y-4 text-sm leading-6 text-gray-300">
+                  <li>주소: {STORE_INFO.address}</li>
+                  <li>전화: {STORE_INFO.phone}</li>
+                  <li>영업시간: {STORE_INFO.businessHours[0].hours}</li>
+                  <li>대표: {STORE_INFO.ownerName}</li>
+                  <li>사업자번호: {STORE_INFO.businessNumber}</li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
-
-        {/* 하단 정보 */}
-        <div className="mt-12 pt-8 border-t border-gray-800">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-sm text-gray-500">
-              <p>사업자등록번호: {STORE_INFO.businessNumber}</p>
-              <p className="mt-1">대표: {STORE_INFO.ownerName}</p>
-            </div>
-
-            <div className="text-sm text-gray-500">
-              <p>© {currentYear} 맛있는고기에솜씨를더하다. All rights reserved.</p>
-            </div>
-          </div>
-
-          {/* 추가 링크 */}
-          <div className="mt-6 flex flex-wrap justify-center gap-4 text-sm text-gray-500">
-            <Link href="/notice" className="hover:text-secondary-400 transition-colors">
-              공지사항
-            </Link>
-            <span>|</span>
-            <Link href="/location" className="hover:text-secondary-400 transition-colors">
-              오시는길
-            </Link>
-            <span>|</span>
-            <a
-              href={STORE_INFO.naverPlaceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-secondary-400 transition-colors"
-            >
-              네이버 플레이스
-            </a>
-          </div>
+        <div className="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24">
+          <p className="text-xs leading-5 text-gray-400">
+            &copy; {new Date().getFullYear()} {STORE_INFO.name}. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

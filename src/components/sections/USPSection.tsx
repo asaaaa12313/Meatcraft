@@ -1,5 +1,5 @@
 import USPCard from '@/components/common/USPCard';
-import SectionTitle from '@/components/common/SectionTitle';
+import { SectionTitle } from '@/components/common/SectionTitle';
 import { FireIcon, BeakerIcon, SparklesIcon } from '@heroicons/react/24/outline';
 
 const uspItems = [

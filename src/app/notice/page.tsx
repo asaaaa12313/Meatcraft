@@ -1,4 +1,4 @@
-import SectionTitle from '@/components/common/SectionTitle';
+import { SectionTitle } from '@/components/common/SectionTitle';
 import { noticeData, getImportantNotices } from '@/data/notice';
 import { formatDate } from '@/lib/utils';
 import { Metadata } from 'next';

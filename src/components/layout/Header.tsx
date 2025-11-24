@@ -1,114 +1,130 @@
 'use client';
 
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { NAV_ITEMS, STORE_INFO } from '@/lib/constants';
-import { handleExternalLink } from '@/lib/utils';
+import { Button } from '@/components/common/Button';
+import { cn } from '@/lib/utils';
 
-export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+export function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      setScrolled(window.scrollY > 10);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // 모바일 메뉴 열렸을 때 스크롤 방지
+  // Close mobile menu when route changes
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-  }, [isMobileMenuOpen]);
+    setMobileMenuOpen(false);
+  }, [pathname]);
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white shadow-md'
-          : 'bg-white/95 backdrop-blur-sm'
-      }`}
+      className={cn(
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+        scrolled ? 'bg-white/95 backdrop-blur-sm shadow-sm py-2' : 'bg-transparent py-4'
+      )}
     >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* 로고 */}
-          <Link href="/" className="flex items-center space-x-2 group">
-            <div className="text-xl md:text-2xl font-bold text-primary-600 transition-colors group-hover:text-primary-700">
-              맛있는고기에솜씨를더하다
-            </div>
+      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+        <div className="flex lg:flex-1">
+          <Link href="/" className="-m-1.5 p-1.5">
+            <span className="sr-only">{STORE_INFO.name}</span>
+            <span className={cn("text-2xl font-bold", scrolled ? "text-[#8B4513]" : "text-white")}>
+              맛있는고기
+            </span>
           </Link>
-
-          {/* 데스크탑 네비게이션 */}
-          <nav className="hidden lg:flex items-center space-x-1">
-            {NAV_ITEMS.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="px-4 py-2 text-gray-700 hover:text-primary-600 transition-colors rounded-md hover:bg-primary-50"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-
-          {/* 네이버 예약 버튼 (데스크탑) */}
+        </div>
+        <div className="flex lg:hidden">
           <button
-            onClick={() => handleExternalLink(STORE_INFO.naverBookingUrl, 'naver_booking_header')}
-            className="hidden lg:flex items-center px-6 py-2.5 bg-secondary-500 text-white rounded-lg hover:bg-secondary-600 transition-colors font-medium shadow-sm"
+            type="button"
+            className={cn("-m-2.5 inline-flex items-center justify-center rounded-md p-2.5", scrolled ? "text-gray-700" : "text-white")}
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <span className="sr-only">메뉴 열기</span>
+            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+          </button>
+        </div>
+        <div className="hidden lg:flex lg:gap-x-8">
+          {NAV_ITEMS.map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              className={cn(
+                "text-sm font-semibold leading-6 transition-colors",
+                scrolled
+                  ? (pathname === item.href ? "text-[#8B4513]" : "text-gray-900 hover:text-[#8B4513]")
+                  : (pathname === item.href ? "text-white" : "text-white/90 hover:text-white")
+              )}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+          <Button
+            variant={scrolled ? "primary" : "secondary"}
+            size="sm"
+            onClick={() => window.open(STORE_INFO.naverBookingUrl, '_blank')}
           >
             네이버 예약
-          </button>
+          </Button>
+        </div>
+      </nav>
 
-          {/* 모바일 메뉴 버튼 */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-gray-700 hover:text-primary-600 transition-colors"
-            aria-label="메뉴"
-          >
-            {isMobileMenuOpen ? (
-              <XMarkIcon className="w-6 h-6" />
-            ) : (
-              <Bars3Icon className="w-6 h-6" />
-            )}
-          </button>
+      {/* Mobile menu */}
+      <div className={cn("lg:hidden", mobileMenuOpen ? "fixed inset-0 z-50" : "hidden")}>
+        <div className="fixed inset-0 bg-black/30" onClick={() => setMobileMenuOpen(false)} />
+        <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+          <div className="flex items-center justify-between">
+            <Link href="/" className="-m-1.5 p-1.5">
+              <span className="sr-only">{STORE_INFO.name}</span>
+              <span className="text-xl font-bold text-[#8B4513]">맛있는고기</span>
+            </Link>
+            <button
+              type="button"
+              className="-m-2.5 rounded-md p-2.5 text-gray-700"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="sr-only">메뉴 닫기</span>
+              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+            </button>
+          </div>
+          <div className="mt-6 flow-root">
+            <div className="-my-6 divide-y divide-gray-500/10">
+              <div className="space-y-2 py-6">
+                {NAV_ITEMS.map((item) => (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className={cn(
+                      "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-gray-50",
+                      pathname === item.href ? "text-[#8B4513]" : "text-gray-900"
+                    )}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+              <div className="py-6">
+                <Button
+                  fullWidth
+                  onClick={() => window.open(STORE_INFO.naverBookingUrl, '_blank')}
+                >
+                  네이버 예약하기
+                </Button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-
-      {/* 모바일 메뉴 */}
-      {isMobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 top-16 bg-white z-40 overflow-y-auto">
-          <nav className="container mx-auto px-4 py-6 flex flex-col space-y-1">
-            {NAV_ITEMS.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="px-4 py-3 text-gray-700 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors"
-              >
-                {item.label}
-              </Link>
-            ))}
-
-            {/* 모바일 네이버 예약 버튼 */}
-            <button
-              onClick={() => {
-                handleExternalLink(STORE_INFO.naverBookingUrl, 'naver_booking_mobile');
-                setIsMobileMenuOpen(false);
-              }}
-              className="mt-4 w-full px-4 py-3 bg-secondary-500 text-white rounded-lg hover:bg-secondary-600 transition-colors font-medium text-center"
-            >
-              네이버 예약
-            </button>
-          </nav>
-        </div>
-      )}
     </header>
   );
 }

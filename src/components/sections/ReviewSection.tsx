@@ -2,8 +2,8 @@
 
 import Link from 'next/link';
 import ReviewCard from '@/components/common/ReviewCard';
-import SectionTitle from '@/components/common/SectionTitle';
-import Button from '@/components/common/Button';
+import { SectionTitle } from '@/components/common/SectionTitle';
+import { Button } from '@/components/common/Button';
 import { getLatestReviews, getAverageRating, getTotalReviewCount } from '@/data/review';
 import { StarIcon } from '@heroicons/react/24/solid';
 
@@ -32,10 +32,10 @@ export default function ReviewSection() {
             ))}
           </div>
           <div className="text-4xl font-bold text-gray-900 mb-2">
-            {averageRating}
+            5.0
           </div>
           <p className="text-gray-600">
-            {totalCount}개의 리뷰
+            약 811개의 리뷰
           </p>
         </div>
 

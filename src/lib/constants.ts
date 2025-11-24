@@ -37,11 +37,7 @@ export const NAV_ITEMS: NavItem[] = [
     href: '/menu',
     description: '전체 메뉴 보기'
   },
-  {
-    label: '갤러리',
-    href: '/gallery',
-    description: '매장과 음식 사진'
-  },
+
   {
     label: '공지사항',
     href: '/notice',
@@ -93,5 +89,5 @@ export const GA_EVENTS = {
   MAP_CLICK: 'map_click',
   MENU_CATEGORY_CLICK: 'menu_category_click',
   REVIEW_DETAIL_VIEW: 'review_detail_view',
-  GALLERY_IMAGE_VIEW: 'gallery_image_view'
+
 };
