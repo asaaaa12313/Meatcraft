@@ -63,8 +63,8 @@ export default function AgingSystemPage() {
 
             {/* Step 1: 원육 선별 */}
             <div className="relative mb-16">
-              <div className="md:grid md:grid-cols-2 md:gap-8 items-center">
-                <div className="md:text-right mb-6 md:mb-0">
+              <div className="flex flex-col gap-8 items-center">
+                <div className="w-full mb-6 md:mb-0">
                   <div className="inline-block md:block">
                     <span className="inline-block px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-full font-bold text-sm mb-3">
                       Step 0
@@ -78,14 +78,7 @@ export default function AgingSystemPage() {
                     </p>
                   </div>
                 </div>
-                <div className="relative h-[300px] rounded-2xl overflow-hidden shadow-xl">
-                  <Image
-                    src="/images/aging/raw-meat.jpg"
-                    alt="스페인 듀록 원육"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+
               </div>
               <div className="hidden md:block absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white dark:bg-gray-900 border-4 border-gray-200 dark:border-gray-700 rounded-full flex items-center justify-center font-bold text-gray-800 dark:text-gray-200 font-medium z-10">
                 0
@@ -177,16 +170,8 @@ export default function AgingSystemPage() {
 
             {/* Step 4: 완성 */}
             <div className="relative">
-              <div className="md:grid md:grid-cols-2 md:gap-8 items-center">
-                <div className="order-2 md:order-1 relative h-[300px] rounded-2xl overflow-hidden shadow-xl mb-6 md:mb-0">
-                  <Image
-                    src="/images/aging/aged-meat-final.jpg"
-                    alt="완성된 숙성육"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="order-1 md:order-2">
+              <div className="flex flex-col gap-8 items-center">
+                <div className="w-full">
                   <span className="inline-block px-4 py-2 bg-accent-100 dark:bg-accent-900/50 text-accent-700 dark:text-accent-300 rounded-full font-semibold text-sm mb-3">
                     Step 3 - 완성
                   </span>

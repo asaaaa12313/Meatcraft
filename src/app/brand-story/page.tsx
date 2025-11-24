@@ -77,8 +77,8 @@ export default function BrandStoryPage() {
 
           <div className="space-y-16">
             {/* 침지숙성 */}
-            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-              <div className="order-2 md:order-1 bg-white p-8 rounded-2xl shadow-lg border-t-4 border-primary-500">
+            <div className="flex flex-col gap-8 items-center">
+              <div className="w-full bg-white p-8 rounded-2xl shadow-lg border-t-4 border-primary-500">
                 <div className="inline-block px-4 py-1.5 bg-primary-100 text-primary-800 rounded-full font-bold mb-6 text-sm">
                   Step 1. 침지숙성 (Water Aging)
                 </div>
@@ -94,27 +94,12 @@ export default function BrandStoryPage() {
                   <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-md font-medium text-sm">#균일숙성</span>
                 </div>
               </div>
-              <div className="order-1 md:order-2 relative h-[300px] md:h-[400px] rounded-2xl overflow-hidden shadow-xl">
-                <Image
-                  src={getBrandImage('침지숙성')}
-                  alt="침지숙성 과정"
-                  fill
-                  className="object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
+
             </div>
 
             {/* 건식숙성 */}
-            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-              <div className="relative h-[300px] md:h-[400px] rounded-2xl overflow-hidden shadow-xl">
-                <Image
-                  src={getBrandImage('건식숙성')}
-                  alt="건식숙성 과정"
-                  fill
-                  className="object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-secondary-500">
+            <div className="flex flex-col gap-8 items-center">
+              <div className="w-full bg-white p-8 rounded-2xl shadow-lg border-t-4 border-secondary-500">
                 <div className="inline-block px-4 py-1.5 bg-secondary-100 text-secondary-800 rounded-full font-bold mb-6 text-sm">
                   Step 2. 건식숙성 (Dry Aging)
                 </div>
