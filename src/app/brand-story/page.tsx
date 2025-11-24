@@ -47,7 +47,7 @@ export default function BrandStoryPage() {
               />
             </div>
             <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">왜 스페인 듀록인가요?</h3>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">왜 스페인 듀록인가요?</h3>
               <ul className="space-y-6">
                 <li className="flex items-start bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
                   <div className="flex-shrink-0 w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center mr-4 mt-1">
@@ -161,7 +161,6 @@ export default function BrandStoryPage() {
 
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/20 transition-colors text-center">
-                <div className="text-4xl mb-4">🇪🇸</div>
                 <h4 className="font-bold text-xl mb-3 text-white">스페인 식문화</h4>
                 <p className="text-gray-300 text-sm leading-relaxed">
                   스페인에서는 하몽 생산을 위한 뒷다리살 수요가 높고 삼겹살 수요는 상대적으로 낮아,
@@ -169,7 +168,6 @@ export default function BrandStoryPage() {
                 </p>
               </div>
               <div className="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/20 transition-colors text-center">
-                <div className="text-4xl mb-4">✈️</div>
                 <h4 className="font-bold text-xl mb-3 text-white">직수입 시스템</h4>
                 <p className="text-gray-300 text-sm leading-relaxed">
                   중간 유통 단계를 최소화한 직수입 구조를 통해 불필요한 마진을 없애고
@@ -177,7 +175,6 @@ export default function BrandStoryPage() {
                 </p>
               </div>
               <div className="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/20 transition-colors text-center">
-                <div className="text-4xl mb-4">💰</div>
                 <h4 className="font-bold text-xl mb-3 text-white">고객 혜택</h4>
                 <p className="text-gray-300 text-sm leading-relaxed">
                   확보된 가격 경쟁력은 고스란히 고객님께 돌아갑니다.
@@ -188,39 +185,7 @@ export default function BrandStoryPage() {
           </div>
         </section>
 
-        {/* 매장 소개 */}
-        <section>
-          <SectionTitle
-            subtitle="Our Restaurant"
-            title="쾌적하고 넓은 공간"
-            description="가족 모임과 회식에 최적화된 매장 환경"
-          />
 
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <div className="relative h-[300px] rounded-2xl overflow-hidden shadow-lg">
-              <Image
-                src={getBrandImage('매장전경')}
-                alt="매장 전경"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            <div className="relative h-[300px] rounded-2xl overflow-hidden shadow-lg">
-              <Image
-                src={getBrandImage('단체석')}
-                alt="단체석"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-          </div>
-
-          <InfoBanner
-            variant="info"
-            title="편리한 주차"
-            message="유니파크 주차장 2시간 무료 이용 가능합니다. 편안하게 식사하세요."
-          />
-        </section>
       </div>
     </div>
   );

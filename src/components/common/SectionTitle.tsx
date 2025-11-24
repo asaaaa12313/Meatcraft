@@ -25,16 +25,16 @@ export function SectionTitle({
       )}
       {...props}
     >
-      <h2 className="text-3xl font-bold tracking-tight text-[#8B4513] sm:text-4xl">
+      <h2 className="text-3xl font-bold tracking-tight text-[#8B4513] dark:text-white sm:text-4xl">
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-2 text-lg font-semibold text-[#D4AF37]">
+        <p className="mt-2 text-lg font-semibold text-[#D4AF37] dark:text-yellow-400">
           {subtitle}
         </p>
       )}
       {description && (
-        <p className="mt-4 text-lg text-gray-600">
+        <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
           {description}
         </p>
       )}
