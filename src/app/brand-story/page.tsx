@@ -50,27 +50,21 @@ export default function BrandStoryPage() {
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">왜 스페인 듀록인가요?</h3>
               <ul className="space-y-6">
                 <li className="flex items-start bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                  <div className="flex-shrink-0 w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center mr-4 mt-1">
-                    <span className="text-primary-700 font-bold">01</span>
-                  </div>
+
                   <div>
                     <strong className="text-gray-900 text-lg block mb-1">풍부한 육즙과 식감</strong>
                     <p className="text-gray-600">마블링이 균일하게 분포되어 입안에서 녹는 듯한 부드러움을 선사합니다.</p>
                   </div>
                 </li>
                 <li className="flex items-start bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                  <div className="flex-shrink-0 w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center mr-4 mt-1">
-                    <span className="text-primary-700 font-bold">02</span>
-                  </div>
+
                   <div>
                     <strong className="text-gray-900 text-lg block mb-1">건강한 지방 구조</strong>
                     <p className="text-gray-600">불포화지방산 비율이 높아 건강하고 느끼하지 않은 깔끔한 맛을 자랑합니다.</p>
                   </div>
                 </li>
                 <li className="flex items-start bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                  <div className="flex-shrink-0 w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center mr-4 mt-1">
-                    <span className="text-primary-700 font-bold">03</span>
-                  </div>
+
                   <div>
                     <strong className="text-gray-900 text-lg block mb-1">깊은 풍미</strong>
                     <p className="text-gray-600">오랜 사육 기간과 자연 방목 환경에서 자라 진한 육향을 느낄 수 있습니다.</p>
