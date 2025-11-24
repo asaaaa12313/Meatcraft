@@ -59,9 +59,9 @@ export default function MenuPage() {
           {filteredMenus.map((category) => (
             <section key={category.id} id={category.id}>
               <div className="mb-8">
-                <h2 className="text-3xl font-bold text-gray-900 mb-2">{category.name}</h2>
+                <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">{category.name}</h2>
                 {category.description && (
-                  <p className="text-gray-800 font-medium">{category.description}</p>
+                  <p className="text-gray-800 dark:text-gray-300 font-medium">{category.description}</p>
                 )}
               </div>
 
@@ -75,9 +75,9 @@ export default function MenuPage() {
         </div>
 
         {/* 안내 사항 */}
-        <div className="mt-16 p-6 md:p-8 bg-gray-50 rounded-2xl">
-          <h3 className="font-bold text-lg mb-4">메뉴 안내</h3>
-          <ul className="space-y-2 text-gray-800 font-medium">
+        <div className="mt-16 p-6 md:p-8 bg-gray-50 dark:bg-gray-900 rounded-2xl">
+          <h3 className="font-bold text-lg mb-4 text-gray-900 dark:text-white">메뉴 안내</h3>
+          <ul className="space-y-2 text-gray-800 dark:text-gray-300 font-medium">
             <li className="flex items-start">
               <span className="text-primary-600 mr-2">•</span>
               <span>가격은 부가세 포함 금액입니다.</span>
