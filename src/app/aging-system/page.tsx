@@ -57,149 +57,107 @@ export default function AgingSystemPage() {
             description="두 가지 숙성 방식의 장점을 모두 담았습니다"
           />
 
-          <div className="relative">
-            {/* 타임라인 */}
-            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary-300 via-secondary-300 to-accent-300 dark:from-primary-700 dark:via-secondary-700 dark:to-accent-700"></div>
+          <div className="relative max-w-4xl mx-auto">
+            {/* Vertical Line */}
+            <div className="absolute left-4 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-300 via-secondary-300 to-accent-300 dark:from-primary-700 dark:via-secondary-700 dark:to-accent-700"></div>
 
-            {/* Step 1: 원육 선별 */}
-            <div className="relative mb-16">
-              <div className="flex flex-col gap-8 items-center">
-                <div className="w-full mb-6 md:mb-0">
-                  <div className="inline-block md:block">
-                    <span className="inline-block px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-full font-bold text-sm mb-3">
-                      Step 0
-                    </span>
-                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-3">
-                      스페인 듀록 원육 선별
-                    </h3>
-                    <p className="text-gray-800 dark:text-gray-300 leading-relaxed font-medium">
-                      엄격한 기준으로 선별된 최상급 스페인 듀록 원육만을 사용합니다.
-                      마블링과 육색, 육질을 꼼꼼하게 확인합니다.
-                    </p>
-                  </div>
+            <div className="space-y-12">
+              {/* Step 0 */}
+              <div className="relative pl-12 md:pl-24">
+                <div className="absolute left-0 md:left-4 top-0 w-8 h-8 md:w-8 md:h-8 bg-white dark:bg-gray-900 border-4 border-gray-200 dark:border-gray-700 rounded-full flex items-center justify-center z-10">
+                  <span className="text-xs font-bold text-gray-500">0</span>
                 </div>
-
+                <div className="bg-white dark:bg-gray-900 p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800">
+                  <span className="inline-block px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-bold mb-3">Step 0</span>
+                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-3">스페인 듀록 원육 선별</h3>
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                    엄격한 기준으로 선별된 최상급 스페인 듀록 원육만을 사용합니다. 마블링과 육색, 육질을 꼼꼼하게 확인합니다.
+                  </p>
+                </div>
               </div>
-              <div className="hidden md:block absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white dark:bg-gray-900 border-4 border-gray-200 dark:border-gray-700 rounded-full flex items-center justify-center font-bold text-gray-800 dark:text-gray-200 font-medium z-10">
-                0
-              </div>
-            </div>
 
-            {/* Step 2: 침지숙성 */}
-            <div className="relative mb-16">
-              <div className="flex flex-col gap-8 items-center">
-                <div className="w-full">
-                  <span className="inline-block px-4 py-2 bg-primary-100 dark:bg-primary-900/50 text-primary-700 dark:text-primary-300 rounded-full font-semibold text-sm mb-3">
-                    Step 1 - 침지숙성
-                  </span>
-                  <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-3">
-                    2°C 이하, 20일간
-                  </h3>
-                  <p className="text-gray-800 dark:text-gray-300 font-medium leading-relaxed mb-4">
-                    저온의 물속에서 20일간 침지숙성을 진행합니다.
-                    이 과정에서 육즙이 최대한 보존되며 육질이 부드러워집니다.
+              {/* Step 1 */}
+              <div className="relative pl-12 md:pl-24">
+                <div className="absolute left-0 md:left-4 top-0 w-8 h-8 md:w-8 md:h-8 bg-white dark:bg-gray-900 border-4 border-primary-300 dark:border-primary-700 rounded-full flex items-center justify-center z-10">
+                  <span className="text-xs font-bold text-primary-600">1</span>
+                </div>
+                <div className="bg-white dark:bg-gray-900 p-6 md:p-8 rounded-2xl shadow-sm border border-primary-100 dark:border-primary-900/30">
+                  <span className="inline-block px-3 py-1 bg-primary-100 dark:bg-primary-900/50 text-primary-700 dark:text-primary-300 rounded-full text-xs font-bold mb-3">Step 1 - 침지숙성</span>
+                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-3">2°C 이하, 20일간</h3>
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+                    저온의 물속에서 20일간 침지숙성을 진행합니다. 이 과정에서 육즙이 최대한 보존되며 육질이 부드러워집니다.
                   </p>
                   <ul className="space-y-2">
-                    <li className="flex items-start">
-                      <svg className="w-6 h-6 text-primary-600 dark:text-primary-400 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                      </svg>
-                      <span className="text-gray-700 dark:text-gray-300">육즙 손실 최소화</span>
+                    <li className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                      <svg className="w-4 h-4 text-primary-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+                      육즙 손실 최소화
                     </li>
-                    <li className="flex items-start">
-                      <svg className="w-6 h-6 text-primary-600 dark:text-primary-400 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                      </svg>
-                      <span className="text-gray-700 dark:text-gray-300">균일한 숙성 진행</span>
+                    <li className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                      <svg className="w-4 h-4 text-primary-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+                      균일한 숙성 진행
                     </li>
-                    <li className="flex items-start">
-                      <svg className="w-6 h-6 text-primary-600 dark:text-primary-400 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                      </svg>
-                      <span className="text-gray-700 dark:text-gray-300">육질 연화 효과</span>
+                    <li className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                      <svg className="w-4 h-4 text-primary-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+                      육질 연화 효과
                     </li>
                   </ul>
                 </div>
               </div>
-              <div className="hidden md:block absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white dark:bg-gray-900 border-4 border-primary-300 dark:border-primary-700 rounded-full flex items-center justify-center font-bold text-primary-600 dark:text-primary-400 z-10">
-                1
-              </div>
-            </div>
 
-            {/* Step 3: 건식숙성 */}
-            <div className="relative mb-16">
-              <div className="flex flex-col gap-8 items-center">
-                <div className="md:text-right mb-6 md:mb-0">
-                  <span className="inline-block px-4 py-2 bg-secondary-100 dark:bg-secondary-900/50 text-secondary-700 dark:text-secondary-300 rounded-full font-semibold text-sm mb-3">
-                    Step 2 - 건식숙성
-                  </span>
-                  <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-3">
-                    저온 공기 순환 방식
-                  </h3>
-                  <p className="text-gray-800 dark:text-gray-300 font-medium leading-relaxed mb-4">
-                    침지숙성을 마친 고기는 저온의 공기가 순환하는 환경에서
-                    건식숙성을 진행합니다. 감칠맛이 응축되고 풍미가 깊어집니다.
+              {/* Step 2 */}
+              <div className="relative pl-12 md:pl-24">
+                <div className="absolute left-0 md:left-4 top-0 w-8 h-8 md:w-8 md:h-8 bg-white dark:bg-gray-900 border-4 border-secondary-300 dark:border-secondary-700 rounded-full flex items-center justify-center z-10">
+                  <span className="text-xs font-bold text-secondary-600">2</span>
+                </div>
+                <div className="bg-white dark:bg-gray-900 p-6 md:p-8 rounded-2xl shadow-sm border border-secondary-100 dark:border-secondary-900/30">
+                  <span className="inline-block px-3 py-1 bg-secondary-100 dark:bg-secondary-900/50 text-secondary-700 dark:text-secondary-300 rounded-full text-xs font-bold mb-3">Step 2 - 건식숙성</span>
+                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-3">저온 공기 순환 방식</h3>
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+                    침지숙성을 마친 고기는 저온의 공기가 순환하는 환경에서 건식숙성을 진행합니다. 감칠맛이 응축되고 풍미가 깊어집니다.
                   </p>
                   <ul className="space-y-2">
-                    <li className="flex items-start md:justify-end">
-                      <span className="text-gray-700 dark:text-gray-300 md:order-2">풍미 강화 및 감칠맛 응축</span>
-                      <svg className="w-6 h-6 text-secondary-600 dark:text-secondary-400 mr-2 md:ml-2 md:mr-0 flex-shrink-0 md:order-1" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                      </svg>
+                    <li className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                      <svg className="w-4 h-4 text-secondary-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+                      풍미 강화 및 감칠맛 응축
                     </li>
-                    <li className="flex items-start md:justify-end">
-                      <span className="text-gray-700 dark:text-gray-300 md:order-2">육향 증대</span>
-                      <svg className="w-6 h-6 text-secondary-600 dark:text-secondary-400 mr-2 md:ml-2 md:mr-0 flex-shrink-0 md:order-1" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                      </svg>
+                    <li className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                      <svg className="w-4 h-4 text-secondary-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+                      육향 증대
                     </li>
-                    <li className="flex items-start md:justify-end">
-                      <span className="text-gray-700 dark:text-gray-300 md:order-2">식감 개선</span>
-                      <svg className="w-6 h-6 text-secondary-600 dark:text-secondary-400 mr-2 md:ml-2 md:mr-0 flex-shrink-0 md:order-1" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                      </svg>
+                    <li className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                      <svg className="w-4 h-4 text-secondary-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+                      식감 개선
                     </li>
                   </ul>
                 </div>
-
               </div>
-              <div className="hidden md:block absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white dark:bg-gray-900 border-4 border-secondary-300 dark:border-secondary-700 rounded-full flex items-center justify-center font-bold text-secondary-600 dark:text-secondary-400 z-10">
-                2
-              </div>
-            </div>
 
-            {/* Step 4: 완성 */}
-            <div className="relative">
-              <div className="flex flex-col gap-8 items-center">
-                <div className="w-full">
-                  <span className="inline-block px-4 py-2 bg-accent-100 dark:bg-accent-900/50 text-accent-700 dark:text-accent-300 rounded-full font-semibold text-sm mb-3">
-                    Step 3 - 완성
-                  </span>
-                  <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-3">
-                    프리미엄 숙성육 완성
-                  </h3>
-                  <p className="text-gray-800 dark:text-gray-300 font-medium leading-relaxed mb-4">
-                    듀얼 숙성을 거쳐 완성된 고기는 육즙, 풍미, 식감 모든 면에서
-                    최상의 상태가 됩니다.
+              {/* Step 3 */}
+              <div className="relative pl-12 md:pl-24">
+                <div className="absolute left-0 md:left-4 top-0 w-8 h-8 md:w-8 md:h-8 bg-accent-500 border-4 border-accent-300 dark:border-accent-700 rounded-full flex items-center justify-center z-10">
+                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+                </div>
+                <div className="bg-white dark:bg-gray-900 p-6 md:p-8 rounded-2xl shadow-sm border border-accent-100 dark:border-accent-900/30">
+                  <span className="inline-block px-3 py-1 bg-accent-100 dark:bg-accent-900/50 text-accent-700 dark:text-accent-300 rounded-full text-xs font-bold mb-3">Step 3 - 완성</span>
+                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-3">프리미엄 숙성육 완성</h3>
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+                    듀얼 숙성을 거쳐 완성된 고기는 육즙, 풍미, 식감 모든 면에서 최상의 상태가 됩니다.
                   </p>
-                  <div className="grid grid-cols-3 gap-4 mt-6">
-                    <div className="text-center p-4 bg-gray-50 dark:bg-gray-800 rounded-xl">
-                      <div className="text-3xl font-bold text-accent-600 dark:text-accent-400 mb-1">A+</div>
-                      <div className="text-sm text-gray-800 dark:text-gray-300 font-medium">육즙</div>
+                  <div className="grid grid-cols-3 gap-4">
+                    <div className="text-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                      <div className="text-xl font-bold text-accent-600 dark:text-accent-400">A+</div>
+                      <div className="text-xs text-gray-500 dark:text-gray-400">육즙</div>
                     </div>
-                    <div className="text-center p-4 bg-gray-50 dark:bg-gray-800 rounded-xl">
-                      <div className="text-3xl font-bold text-accent-600 dark:text-accent-400 mb-1">A+</div>
-                      <div className="text-sm text-gray-800 dark:text-gray-300 font-medium">풍미</div>
+                    <div className="text-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                      <div className="text-xl font-bold text-accent-600 dark:text-accent-400">A+</div>
+                      <div className="text-xs text-gray-500 dark:text-gray-400">풍미</div>
                     </div>
-                    <div className="text-center p-4 bg-gray-50 dark:bg-gray-800 rounded-xl">
-                      <div className="text-3xl font-bold text-accent-600 dark:text-accent-400 mb-1">A+</div>
-                      <div className="text-sm text-gray-800 dark:text-gray-300 font-medium">식감</div>
+                    <div className="text-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                      <div className="text-xl font-bold text-accent-600 dark:text-accent-400">A+</div>
+                      <div className="text-xs text-gray-500 dark:text-gray-400">식감</div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="hidden md:block absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-accent-500 border-4 border-accent-300 dark:border-accent-700 rounded-full flex items-center justify-center font-bold text-white z-10">
-                ✓
               </div>
             </div>
           </div>
