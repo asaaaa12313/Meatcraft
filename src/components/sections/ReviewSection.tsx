@@ -35,7 +35,7 @@ export default function ReviewSection() {
             5.0
           </div>
           <p className="text-gray-600">
-            약 811개의 리뷰
+            약 811개의 리뷰 5점 만점
           </p>
         </div>
 

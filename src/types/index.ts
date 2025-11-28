@@ -27,15 +27,7 @@ export interface GalleryImage {
   description?: string;
 }
 
-// 공지사항 관련 타입
-export interface Notice {
-  id: string;
-  title: string;
-  date: string;
-  content: string;
-  author?: string;
-  isImportant?: boolean;
-}
+
 
 // 리뷰 관련 타입
 export interface Review {

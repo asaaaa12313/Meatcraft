@@ -2,7 +2,7 @@ import { StoreInfo, NavItem } from '@/types';
 
 // 매장 정보
 export const STORE_INFO: StoreInfo = {
-  name: '맛있는고기에솜씨를더하다',
+  name: '맛있는고기에솜씨를더하다 소답중동점',
   phone: '0507-1353-9229',
   address: '경남 창원시 의창구 의창대로261번길 6 1층',
   addressDetail: '소답중동점',
@@ -11,10 +11,10 @@ export const STORE_INFO: StoreInfo = {
   ],
   breakTime: '',
   lastOrder: '23:00',
-  naverMapUrl: 'https://map.naver.com/', // 실제 네이버 지도 URL로 교체 필요
+  naverMapUrl: 'https://naver.me/FbOr9GXS', // 실제 네이버 지도 URL로 교체 필요
   mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3!2d128.68!3d35.22!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDEzJzEyLjAiTiAxMjjCsDQwJzQ4LjAiRQ!5e0!3m2!1sko!2skr!4v1234567890', // 실제 Google Maps 임베드 URL로 교체 필요
-  naverBookingUrl: 'https://booking.naver.com/', // 실제 네이버 예약 URL로 교체 필요
-  naverPlaceUrl: 'https://map.naver.com/', // 실제 네이버 플레이스 URL로 교체 필요
+  naverBookingUrl: 'https://booking.naver.com/booking/6/bizes/846524', // 실제 네이버 예약 URL로 교체 필요
+  naverPlaceUrl: 'https://naver.me/FbOr9GXS', // 실제 네이버 플레이스 URL로 교체 필요
   parking: '유니파크 주차장 2시간 무료',
   businessNumber: '123-45-67890', // 실제 사업자번호로 교체 필요
   ownerName: '박금상'
@@ -38,11 +38,7 @@ export const NAV_ITEMS: NavItem[] = [
     description: '전체 메뉴 보기'
   },
 
-  {
-    label: '공지사항',
-    href: '/notice',
-    description: '새로운 소식'
-  },
+
   {
     label: '리뷰',
     href: '/review',
