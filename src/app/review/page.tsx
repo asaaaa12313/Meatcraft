@@ -113,32 +113,7 @@ export default function ReviewPage() {
         </div>
 
         {/* 리뷰 통계 */}
-        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div className="text-center p-6 bg-white rounded-xl shadow-md">
-            <div className="text-3xl font-bold text-primary-600 mb-2">
-              {reviewData.filter(r => r.rating === 5).length}
-            </div>
-            <div className="text-sm text-gray-800 font-medium">⭐ 5점 리뷰</div>
-          </div>
-          <div className="text-center p-6 bg-white rounded-xl shadow-md">
-            <div className="text-3xl font-bold text-primary-600 mb-2">
-              {photoReviews.length}
-            </div>
-            <div className="text-sm text-gray-800 font-medium">📷 포토 리뷰</div>
-          </div>
-          <div className="text-center p-6 bg-white rounded-xl shadow-md">
-            <div className="text-3xl font-bold text-primary-600 mb-2">
-              {averageRating}
-            </div>
-            <div className="text-sm text-gray-800 font-medium">⭐ 평균 평점</div>
-          </div>
-          <div className="text-center p-6 bg-white rounded-xl shadow-md">
-            <div className="text-3xl font-bold text-primary-600 mb-2">
-              {totalCount}
-            </div>
-            <div className="text-sm text-gray-800 font-medium">💬 전체 리뷰</div>
-          </div>
-        </div>
+
       </div>
     </div>
   );

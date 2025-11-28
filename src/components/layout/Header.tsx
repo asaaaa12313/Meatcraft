@@ -37,7 +37,7 @@ export function Header() {
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">{STORE_INFO.name}</span>
-            <span className={cn("text-2xl font-bold", scrolled ? "text-[#8B4513]" : "text-white")}>
+            <span className={cn("text-lg md:text-xl lg:text-2xl font-bold tracking-tight", scrolled ? "text-[#8B4513]" : "text-white")}>
               맛있는고기에솜씨를더하다 소답중동점
             </span>
           </Link>
@@ -86,7 +86,7 @@ export function Header() {
           <div className="flex items-center justify-between">
             <Link href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">{STORE_INFO.name}</span>
-              <span className="text-xl font-bold text-[#8B4513]">맛있는고기에솜씨를더하다 소답중동점</span>
+              <span className="text-lg font-bold text-[#8B4513] tracking-tight">맛있는고기에솜씨를더하다 소답중동점</span>
             </Link>
             <button
               type="button"
