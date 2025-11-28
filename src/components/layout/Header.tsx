@@ -37,9 +37,14 @@ export function Header() {
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">{STORE_INFO.name}</span>
-            <span className={cn("text-lg md:text-xl lg:text-2xl font-bold tracking-tight", scrolled ? "text-[#8B4513]" : "text-white")}>
-              맛있는고기에솜씨를더하다 소답중동점
-            </span>
+            <div className="flex flex-col items-start">
+              <span className={cn("text-lg md:text-xl font-bold tracking-tight", scrolled ? "text-[#8B4513]" : "text-white")}>
+                맛있는고기에솜씨를더하다
+              </span>
+              <span className={cn("text-sm md:text-base font-medium", scrolled ? "text-[#8B4513]/80" : "text-white/90")}>
+                소답중동점
+              </span>
+            </div>
           </Link>
         </div>
         <div className="flex lg:hidden">
@@ -86,7 +91,10 @@ export function Header() {
           <div className="flex items-center justify-between">
             <Link href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">{STORE_INFO.name}</span>
-              <span className="text-lg font-bold text-[#8B4513] tracking-tight">맛있는고기에솜씨를더하다 소답중동점</span>
+              <div className="flex flex-col items-start">
+                <span className="text-lg font-bold text-[#8B4513] tracking-tight">맛있는고기에솜씨를더하다</span>
+                <span className="text-sm font-medium text-[#8B4513]/80">소답중동점</span>
+              </div>
             </Link>
             <button
               type="button"

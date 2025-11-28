@@ -47,7 +47,7 @@ export default function ReviewPage() {
               href={STORE_INFO.naverPlaceUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors font-semibold"
+              className="inline-block px-6 py-3 bg-[#03C75A] text-white rounded-lg hover:bg-[#02b351] transition-colors font-bold"
             >
               네이버 플레이스에서 더 보기
             </a>
@@ -58,9 +58,7 @@ export default function ReviewPage() {
         {photoReviews.length > 0 && (
           <section className="mb-16">
             <SectionTitle
-              title="포토 리뷰"
-              subtitle="Photo Reviews"
-              description="고객님들이 직접 찍은 생생한 사진들"
+              title="리뷰"
               align="left"
             />
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
@@ -97,7 +95,7 @@ export default function ReviewPage() {
               href={STORE_INFO.naverPlaceUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors font-semibold"
+              className="px-6 py-3 bg-[#03C75A] text-white rounded-lg hover:bg-[#02b351] transition-colors font-bold"
             >
               네이버 플레이스 리뷰 작성
             </a>
