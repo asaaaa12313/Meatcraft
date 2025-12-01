@@ -88,7 +88,7 @@ export default function MenuPage() {
             </li>
             <li className="flex items-start">
               <span className="text-primary-600 mr-2">•</span>
-              <span>모든 고기류는 국내산 돼지고기, 한우를 사용합니다.</span>
+              <span>스페인 듀록을 사용합니다.</span>
             </li>
             <li className="flex items-start">
               <span className="text-primary-600 mr-2">•</span>

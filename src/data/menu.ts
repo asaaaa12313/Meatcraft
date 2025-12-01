@@ -95,8 +95,18 @@ export const menuData: MenuCategory[] = [
   {
     id: 'lunch',
     name: '점심특선',
-    description: '평일 점심시간 한정 특별 메뉴 (테이블당 상담 비빔 3,000원 별도)',
+    description: '평일 점심시간 한정 특별 메뉴 (11:30~14:30)',
     items: [
+      {
+        id: 'lunch-kimchi',
+        name: '묵은지 돼지 김치찌개',
+        price: 8000,
+        unit: '1인분',
+        description: '밑반찬 6가지 제공, 1인 식사 가능',
+        image: getMenuImage('kimchi-stew'),
+        badge: '인기',
+        tags: ['점심', '찌개'],
+      },
       {
         id: 'lunch-jeyuk',
         name: '점심특선 제육볶음+된장찌개',
@@ -213,9 +223,9 @@ export const menuData: MenuCategory[] = [
       {
         id: 'side-minari',
         name: '미나리 (계절메뉴)',
-        price: 3990,
+        price: 4990,
         unit: '1접시',
-        description: '싱싱한 미나리에 해물이 듬뿍',
+        description: '싱싱한 미나리',
         image: getMenuImage('minari'),
         tags: ['야채'],
       },
@@ -268,14 +278,7 @@ export const menuData: MenuCategory[] = [
         description: '소주, 맥주 각종',
         tags: ['주류'],
       },
-      {
-        id: 'drink-champagne',
-        name: '생맥주',
-        price: 8000,
-        unit: '1잔',
-        description: '시원한 생맥주',
-        tags: ['주류'],
-      },
+
       {
         id: 'drink-bokbunja',
         name: '복분자',
@@ -289,7 +292,7 @@ export const menuData: MenuCategory[] = [
         name: '음료',
         price: 2000,
         unit: '1병',
-        description: '콜라, 사이다, 주스 등',
+        description: '콜라, 사이다 등',
         tags: ['음료'],
       },
     ],

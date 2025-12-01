@@ -16,7 +16,7 @@ export const STORE_INFO: StoreInfo = {
   naverBookingUrl: 'https://booking.naver.com/booking/6/bizes/846524', // 실제 네이버 예약 URL로 교체 필요
   naverPlaceUrl: 'https://naver.me/FbOr9GXS', // 실제 네이버 플레이스 URL로 교체 필요
   parking: '유니파크 주차장 2시간 무료',
-  businessNumber: '123-45-67890', // 실제 사업자번호로 교체 필요
+  businessNumber: '830-03-01788', // 실제 사업자번호로 교체 필요
   ownerName: '박금상'
 };
 

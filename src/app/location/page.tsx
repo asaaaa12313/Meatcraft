@@ -150,7 +150,7 @@ export default function LocationPage() {
                       </li>
                       <li className="flex items-start">
                         <span className="text-primary-700 mr-2 font-bold">•</span>
-                        <span>도보 2분 거리</span>
+                        <span>도보 5분 거리</span>
                       </li>
                     </ul>
                   </div>
