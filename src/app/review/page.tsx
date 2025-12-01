@@ -67,7 +67,7 @@ export default function ReviewPage() {
 
         {/* 리뷰 작성 안내 */}
         <div className="mt-16 p-6 md:p-8 bg-gradient-to-r from-primary-50 to-secondary-50 rounded-2xl text-center">
-          <h3 className="font-bold text-xl mb-3">방문 후기를 남겨주세요!</h3>
+          <h3 className="font-bold text-xl mb-3 text-gray-900">방문 후기를 남겨주세요!</h3>
           <p className="text-gray-800 font-medium mb-6">
             소중한 후기는 저희에게 큰 힘이 됩니다.<br />
             네이버 플레이스 또는 네이버 예약을 통해 리뷰를 남겨주시면 감사하겠습니다.
