@@ -1,5 +1,6 @@
 import { SectionTitle } from '@/components/common/SectionTitle';
 import { ReviewCard } from '@/components/sections/ReviewCard';
+import { ReviewList } from '@/components/sections/ReviewList';
 import { reviewData, getAverageRating, getTotalReviewCount, getPhotoReviews } from '@/data/review';
 import { Metadata } from 'next';
 import { StarIcon } from '@heroicons/react/24/solid';
@@ -54,33 +55,14 @@ export default function ReviewPage() {
           </div>
         </section>
 
-        {/* 포토 리뷰 */}
-        {photoReviews.length > 0 && (
-          <section className="mb-16">
-            <SectionTitle
-              title="리뷰"
-              align="left"
-            />
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-              {photoReviews.map((review) => (
-                <ReviewCard key={review.id} review={review} />
-              ))}
-            </div>
-          </section>
-        )}
-
-        {/* 전체 리뷰 */}
+        {/* 전체 리뷰 리스트 */}
         <section>
           <SectionTitle
-            title="전체 리뷰"
-            subtitle="All Reviews"
+            title="고객 후기"
+            subtitle="Reviews"
             align="left"
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {reviewData.map((review) => (
-              <ReviewCard key={review.id} review={review} />
-            ))}
-          </div>
+          <ReviewList initialReviews={reviewData} />
         </section>
 
         {/* 리뷰 작성 안내 */}
