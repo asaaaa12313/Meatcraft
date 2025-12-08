@@ -40,7 +40,12 @@ const XMarkIcon = ({ className }: { className?: string }) => (
 export function Header() {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const [mounted, setMounted] = useState(false);
     const pathname = usePathname();
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     // Handle scroll effect
     useEffect(() => {
@@ -60,11 +65,15 @@ export function Header() {
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = 'hidden';
+            document.documentElement.style.overflow = 'hidden';
         } else {
             document.body.style.overflow = 'unset';
+            document.documentElement.style.overflow = 'unset';
+
         }
         return () => {
             document.body.style.overflow = 'unset';
+            document.documentElement.style.overflow = 'unset';
         };
     }, [isOpen]);
 
@@ -140,55 +149,50 @@ export function Header() {
 
             </header>
 
-            {/* Mobile Menu Overlay - Moved outside header stacking context */}
-            {/* Mobile Menu Overlay - Full Screen Modal (Nuclear CSS Fix) */}
-            {
-                isOpen && (
-                    <div
-                        className="fixed top-0 left-0 w-screen h-screen z-[9999] bg-white md:hidden flex flex-col overscroll-none touch-none"
-                        style={{ height: '100dvh' }}
-                    >
-                        {/* Overlay Header */}
-                        <div className="flex-none flex items-center justify-between p-4 border-b border-neutral-100 bg-white z-[10000]">
-                            <div className="flex flex-col">
-                                <span className="font-bold text-lg text-[#8B4513] leading-tight">
-                                    {STORE_INFO.name.split(' ')[0]}
-                                </span>
-                                <span className="text-sm text-[#8B4513] opacity-80">
-                                    {STORE_INFO.name.split(' ')[1]}
-                                </span>
-                            </div>
-                            <button
-                                type="button"
-                                className="p-2 text-neutral-600 hover:bg-neutral-100 rounded-lg transition-colors"
-                                onClick={() => setIsOpen(false)}
-                                aria-label="Close menu"
-                            >
-                                <XMarkIcon className="w-6 h-6" />
-                            </button>
+            {/* Mobile Menu Overlay - Portal to Body */}
+            {mounted && isOpen && createPortal(
+                <div className="fixed inset-0 z-[9999] bg-white md:hidden flex flex-col">
+                    {/* Overlay Header */}
+                    <div className="flex-none flex items-center justify-between p-4 border-b border-neutral-100 bg-white">
+                        <div className="flex flex-col">
+                            <span className="font-bold text-lg text-[#8B4513] leading-tight">
+                                {STORE_INFO.name.split(' ')[0]}
+                            </span>
+                            <span className="text-sm text-[#8B4513] opacity-80">
+                                {STORE_INFO.name.split(' ')[1]}
+                            </span>
                         </div>
+                        <button
+                            type="button"
+                            className="p-2 text-neutral-600 hover:bg-neutral-100 rounded-lg transition-colors"
+                            onClick={() => setIsOpen(false)}
+                            aria-label="Close menu"
+                        >
+                            <XMarkIcon className="w-6 h-6" />
+                        </button>
+                    </div>
 
-                        {/* Menu Items */}
-                        <div className="flex-1 overflow-y-auto p-4 bg-white touch-auto">
-                            <div className="flex flex-col space-y-1 pb-20">
-                                {NAV_ITEMS.map((item) => (
-                                    <Link
-                                        key={item.href}
-                                        href={item.href}
-                                        onClick={() => setIsOpen(false)}
-                                        className={cn(
-                                            "text-lg font-medium px-4 py-4 border-b border-neutral-50 last:border-0 hover:bg-neutral-50 transition-colors block text-neutral-900",
-                                            pathname === item.href ? "text-[#8B4513] font-bold bg-[#8B4513]/5 rounded-lg border-none mb-1" : ""
-                                        )}
-                                    >
-                                        {item.label}
-                                    </Link>
-                                ))}
-                            </div>
+                    {/* Menu Items */}
+                    <div className="flex-1 overflow-y-auto p-4 bg-white">
+                        <div className="flex flex-col space-y-1 pb-20">
+                            {NAV_ITEMS.map((item) => (
+                                <Link
+                                    key={item.href}
+                                    href={item.href}
+                                    onClick={() => setIsOpen(false)}
+                                    className={cn(
+                                        "text-lg font-medium px-4 py-4 border-b border-neutral-50 last:border-0 hover:bg-neutral-50 transition-colors block text-neutral-900",
+                                        pathname === item.href ? "text-[#8B4513] font-bold bg-[#8B4513]/5 rounded-lg border-none mb-1" : ""
+                                    )}
+                                >
+                                    {item.label}
+                                </Link>
+                            ))}
                         </div>
                     </div>
-                )
-            }
+                </div>,
+                document.body
+            )}
         </>
     );
 }
