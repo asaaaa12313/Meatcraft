@@ -2,7 +2,7 @@ import { StoreInfo, NavItem } from '@/types';
 
 // 매장 정보
 export const STORE_INFO: StoreInfo = {
-  name: '맛있는고기에솜씨를더하다 소답중동점',
+  name: '맛있는고기에솜씨를더하다 소담중동점 (업데이트됨)',
   phone: '0507-1353-9229',
   address: '경남 창원시 의창구 의창대로261번길 6 1층',
   addressDetail: '소답중동점',
