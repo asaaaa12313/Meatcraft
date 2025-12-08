@@ -113,10 +113,30 @@ export function Header() {
                 </div>
             </div>
 
+            {/* Mobile Category Shortcut Bar */}
+            <div className="md:hidden border-t border-neutral-50 overflow-x-auto no-scrollbar bg-white/95 backdrop-blur-sm">
+                <div className="flex px-4 py-3 gap-2 w-max">
+                    {NAV_ITEMS.map((item) => (
+                        <Link
+                            key={item.href}
+                            href={item.href}
+                            className={cn(
+                                "px-3 py-1.5 rounded-full text-sm font-medium transition-colors border",
+                                pathname === item.href
+                                    ? "bg-[#8B4513] text-white border-[#8B4513]"
+                                    : "bg-white text-neutral-600 border-neutral-200 hover:bg-neutral-50"
+                            )}
+                        >
+                            {item.label}
+                        </Link>
+                    ))}
+                </div>
+            </div>
+
             {/* Mobile Menu Overlay */}
             {isOpen && (
                 <div
-                    className="fixed inset-0 z-40 bg-white pt-[72px] md:hidden"
+                    className="fixed inset-0 z-40 bg-white pt-[128px] md:hidden"
                     style={{ height: '100dvh' }}
                 >
                     <div className="flex flex-col p-4 bg-white h-full overflow-y-auto">
