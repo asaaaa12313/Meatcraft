@@ -140,7 +140,7 @@ export function Header() {
             {
                 isOpen && (
                     <div
-                        className="fixed inset-0 z-40 bg-white md:hidden animate-fade-in-up"
+                        className="fixed inset-0 z-40 bg-white md:hidden"
                         style={{ height: '100dvh', paddingTop: '128px' }} // Use style for safe padding calc if needed
                     >
                         <div className="flex flex-col p-4 bg-white h-full overflow-y-auto">
