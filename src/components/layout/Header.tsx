@@ -115,7 +115,10 @@ export function Header() {
                 </div>
 
                 {/* Mobile Category Shortcut Bar */}
-                <div className="md:hidden border-t border-neutral-50 overflow-x-auto no-scrollbar bg-white/95 backdrop-blur-sm">
+                <div className={cn(
+                    "border-t border-neutral-50 overflow-x-auto no-scrollbar bg-white/95 backdrop-blur-sm",
+                    isOpen ? "hidden" : "md:hidden"
+                )}>
                     <div className="flex px-4 py-3 gap-2 w-max">
                         {NAV_ITEMS.map((item) => (
                             <Link
@@ -141,7 +144,7 @@ export function Header() {
                 isOpen && (
                     <div
                         className="fixed top-0 left-0 w-full z-40 bg-white md:hidden"
-                        style={{ height: '100vh', paddingTop: '128px' }}
+                        style={{ height: '100vh', paddingTop: '72px' }}
                     >
                         <div className="flex flex-col p-4 bg-white h-full overflow-y-auto">
                             {NAV_ITEMS.map((item) => (
