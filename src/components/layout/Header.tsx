@@ -116,18 +116,18 @@ export function Header() {
             {/* Mobile Menu Overlay */}
             {isOpen && (
                 <div
-                    className="fixed inset-0 bg-white z-[60] md:hidden overflow-y-auto animate-fade-in-up pt-20"
-                    style={{ height: '100dvh' }} // Handle mobile browser address bar dynamic height
+                    className="fixed inset-0 z-40 bg-white pt-[72px] md:hidden"
+                    style={{ height: '100dvh' }}
                 >
-                    <div className="flex flex-col p-4 space-y-2">
+                    <div className="flex flex-col p-4 bg-white h-full overflow-y-auto">
                         {NAV_ITEMS.map((item) => (
                             <Link
                                 key={item.href}
                                 href={item.href}
                                 onClick={() => setIsOpen(false)}
                                 className={cn(
-                                    "text-lg font-medium px-4 py-3 rounded-lg hover:bg-neutral-50 transition-colors block", // Added block for larger touch target
-                                    pathname === item.href ? "text-[#8B4513] bg-[#8B4513]/5" : "text-neutral-800"
+                                    "text-lg font-medium px-4 py-4 border-b border-neutral-100 last:border-0 hover:bg-neutral-50 transition-colors block text-neutral-900",
+                                    pathname === item.href ? "text-[#8B4513] font-bold" : ""
                                 )}
                             >
                                 {item.label}
