@@ -140,8 +140,8 @@ export function Header() {
             {
                 isOpen && (
                     <div
-                        className="fixed inset-0 z-40 bg-white md:hidden"
-                        style={{ height: '100dvh', paddingTop: '128px' }} // Use style for safe padding calc if needed
+                        className="fixed top-0 left-0 w-full z-40 bg-white md:hidden"
+                        style={{ height: '100vh', paddingTop: '128px' }}
                     >
                         <div className="flex flex-col p-4 bg-white h-full overflow-y-auto">
                             {NAV_ITEMS.map((item) => (
