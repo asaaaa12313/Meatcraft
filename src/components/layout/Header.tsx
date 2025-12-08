@@ -151,7 +151,7 @@ export function Header() {
 
             {/* Mobile Menu Overlay - Portal to Body */}
             {mounted && isOpen && createPortal(
-                <div className="fixed inset-0 z-[9999] bg-white md:hidden flex flex-col">
+                <div className="fixed inset-0 z-[9999] bg-white md:hidden flex flex-col border-4 border-red-500">
                     {/* Overlay Header */}
                     <div className="flex-none flex items-center justify-between p-4 border-b border-neutral-100 bg-white">
                         <div className="flex flex-col">
