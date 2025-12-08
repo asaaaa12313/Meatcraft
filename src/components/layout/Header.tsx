@@ -140,26 +140,47 @@ export function Header() {
             </header>
 
             {/* Mobile Menu Overlay - Moved outside header stacking context */}
+            {/* Mobile Menu Overlay - Full Screen Modal */}
             {
                 isOpen && (
-                    <div
-                        className="fixed top-0 left-0 w-full z-40 bg-white md:hidden"
-                        style={{ height: '100vh', paddingTop: '72px' }}
-                    >
-                        <div className="flex flex-col p-4 bg-white h-full overflow-y-auto">
-                            {NAV_ITEMS.map((item) => (
-                                <Link
-                                    key={item.href}
-                                    href={item.href}
-                                    onClick={() => setIsOpen(false)}
-                                    className={cn(
-                                        "text-lg font-medium px-4 py-4 border-b border-neutral-100 last:border-0 hover:bg-neutral-50 transition-colors block text-neutral-900",
-                                        pathname === item.href ? "text-[#8B4513] font-bold" : ""
-                                    )}
-                                >
-                                    {item.label}
-                                </Link>
-                            ))}
+                    <div className="fixed inset-0 z-[60] bg-white md:hidden flex flex-col">
+                        {/* Overlay Header */}
+                        <div className="flex items-center justify-between p-4 border-b border-neutral-100">
+                            <div className="flex flex-col">
+                                <span className="font-bold text-lg text-[#8B4513] leading-tight">
+                                    {STORE_INFO.name.split(' ')[0]}
+                                </span>
+                                <span className="text-sm text-[#8B4513] opacity-80">
+                                    {STORE_INFO.name.split(' ')[1]}
+                                </span>
+                            </div>
+                            <button
+                                type="button"
+                                className="p-2 text-neutral-600 hover:bg-neutral-100 rounded-lg transition-colors"
+                                onClick={() => setIsOpen(false)}
+                                aria-label="Close menu"
+                            >
+                                <XMarkIcon className="w-6 h-6" />
+                            </button>
+                        </div>
+
+                        {/* Menu Items */}
+                        <div className="flex-1 overflow-y-auto p-4">
+                            <div className="flex flex-col space-y-1">
+                                {NAV_ITEMS.map((item) => (
+                                    <Link
+                                        key={item.href}
+                                        href={item.href}
+                                        onClick={() => setIsOpen(false)}
+                                        className={cn(
+                                            "text-lg font-medium px-4 py-4 border-b border-neutral-50 last:border-0 hover:bg-neutral-50 transition-colors block text-neutral-900",
+                                            pathname === item.href ? "text-[#8B4513] font-bold bg-[#8B4513]/5 rounded-lg border-none mb-1" : ""
+                                        )}
+                                    >
+                                        {item.label}
+                                    </Link>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 )
