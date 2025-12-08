@@ -140,12 +140,15 @@ export function Header() {
             </header>
 
             {/* Mobile Menu Overlay - Moved outside header stacking context */}
-            {/* Mobile Menu Overlay - Full Screen Modal */}
+            {/* Mobile Menu Overlay - Full Screen Modal (Nuclear CSS Fix) */}
             {
                 isOpen && (
-                    <div className="fixed inset-0 z-[60] bg-white md:hidden flex flex-col">
+                    <div
+                        className="fixed top-0 left-0 w-screen h-screen z-[9999] bg-white md:hidden flex flex-col overscroll-none touch-none"
+                        style={{ height: '100dvh' }}
+                    >
                         {/* Overlay Header */}
-                        <div className="flex items-center justify-between p-4 border-b border-neutral-100">
+                        <div className="flex-none flex items-center justify-between p-4 border-b border-neutral-100 bg-white z-[10000]">
                             <div className="flex flex-col">
                                 <span className="font-bold text-lg text-[#8B4513] leading-tight">
                                     {STORE_INFO.name.split(' ')[0]}
@@ -165,8 +168,8 @@ export function Header() {
                         </div>
 
                         {/* Menu Items */}
-                        <div className="flex-1 overflow-y-auto p-4">
-                            <div className="flex flex-col space-y-1">
+                        <div className="flex-1 overflow-y-auto p-4 bg-white touch-auto">
+                            <div className="flex flex-col space-y-1 pb-20">
                                 {NAV_ITEMS.map((item) => (
                                     <Link
                                         key={item.href}
