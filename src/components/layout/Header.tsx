@@ -30,6 +30,7 @@ export function Header() {
 
     // Handle scroll effect
     useEffect(() => {
+        console.log('Mobile Nav Refactor Applied');
         const handleScroll = () => {
             setScrolled(window.scrollY > 20);
         };
