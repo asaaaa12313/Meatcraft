@@ -151,7 +151,7 @@ export function Header() {
 
             {/* Mobile Menu Overlay - Portal to Body */}
             {mounted && isOpen && createPortal(
-                <div className="fixed inset-0 z-[9999] bg-white md:hidden flex flex-col">
+                <div className="fixed inset-0 z-[9999] bg-white md:hidden flex flex-col h-[100dvh] overscroll-none touch-none">
                     {/* Overlay Header */}
                     <div className="flex-none flex items-center justify-between p-4 border-b border-neutral-100 bg-white">
                         <div className="flex flex-col">
@@ -173,7 +173,7 @@ export function Header() {
                     </div>
 
                     {/* Menu Items */}
-                    <div className="flex-1 overflow-y-auto p-4 bg-white">
+                    <div className="flex-1 overflow-y-auto p-4 bg-white overscroll-contain">
                         <div className="flex flex-col space-y-1 pb-20">
                             {NAV_ITEMS.map((item) => (
                                 <Link
