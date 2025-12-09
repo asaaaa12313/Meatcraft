@@ -26,17 +26,29 @@ import { cn } from '@/lib/utils';
 
 export function Header() {
     const [scrolled, setScrolled] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const pathname = usePathname();
 
     // Handle scroll effect
     useEffect(() => {
-        console.log('Mobile Nav Refactor Applied');
         const handleScroll = () => {
             setScrolled(window.scrollY > 20);
         };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    // Prevent scrolling when menu is open
+    useEffect(() => {
+        if (isMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [isMenuOpen]);
 
     return (
         <>
@@ -47,8 +59,8 @@ export function Header() {
                 )}
             >
                 <div className="container mx-auto px-4">
-                    <div className="flex items-center justify-center md:justify-between">
-                        <Link href="/" className="flex flex-col items-center md:items-start">
+                    <div className="flex items-center justify-between">
+                        <Link href="/" className="flex flex-col items-center md:items-start" onClick={() => setIsMenuOpen(false)}>
                             <span className="font-bold text-lg text-[#8B4513] leading-tight">
                                 {STORE_INFO.name.split(' ')[0]}
                             </span>
@@ -72,29 +84,60 @@ export function Header() {
                                 </Link>
                             ))}
                         </nav>
+
+                        {/* Mobile Menu Button */}
+                        <button
+                            className="md:hidden p-2 text-neutral-600"
+                            onClick={() => setIsMenuOpen(true)}
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                            </svg>
+                        </button>
                     </div>
                 </div>
 
-                {/* Mobile Category Shortcut Bar - Always visible on mobile */}
-                <div className="md:hidden border-t border-neutral-50 overflow-x-auto no-scrollbar bg-white/95 backdrop-blur-sm mt-3">
-                    <div className="flex px-4 py-2 gap-2 w-max mx-auto">
-                        {NAV_ITEMS.map((item) => (
-                            <Link
-                                key={item.href}
-                                href={item.href}
-                                className={cn(
-                                    "px-3 py-1.5 rounded-full text-sm font-medium transition-colors border whitespace-nowrap",
-                                    pathname === item.href
-                                        ? "bg-[#8B4513] text-white border-[#8B4513]"
-                                        : "bg-white text-neutral-600 border-neutral-200 hover:bg-neutral-50"
-                                )}
-                            >
-                                {item.label}
-                            </Link>
-                        ))}
+                {/* Mobile Menu Overlay */}
+                {isMenuOpen && (
+                    <div className="fixed inset-0 z-50 bg-white md:hidden">
+                        <div className="container mx-auto px-4 py-4 h-full flex flex-col">
+                            <div className="flex items-center justify-between mb-8">
+                                <Link href="/" className="flex flex-col items-center items-start" onClick={() => setIsMenuOpen(false)}>
+                                    <span className="font-bold text-lg text-[#8B4513] leading-tight">
+                                        {STORE_INFO.name.split(' ')[0]}
+                                    </span>
+                                    <span className="text-sm text-[#8B4513] opacity-80">
+                                        {STORE_INFO.name.split(' ')[1]}
+                                    </span>
+                                </Link>
+                                <button
+                                    className="p-2 text-neutral-600"
+                                    onClick={() => setIsMenuOpen(false)}
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            </div>
+                            
+                            <nav className="flex flex-col gap-6 items-center justify-center flex-1">
+                                {NAV_ITEMS.map((item) => (
+                                    <Link
+                                        key={item.href}
+                                        href={item.href}
+                                        className={cn(
+                                            "text-2xl font-medium transition-colors",
+                                            pathname === item.href ? "text-[#8B4513]" : "text-neutral-600"
+                                        )}
+                                        onClick={() => setIsMenuOpen(false)}
+                                    >
+                                        {item.label}
+                                    </Link>
+                                ))}
+                            </nav>
+                        </div>
                     </div>
-                </div>
-
+                )}
             </header>
         </>
     );
